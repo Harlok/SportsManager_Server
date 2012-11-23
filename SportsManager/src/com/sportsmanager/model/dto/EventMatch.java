@@ -20,7 +20,21 @@ public class EventMatch implements Serializable
 	private SeasonEvent seasonEvent;
 	private ArrayList<MatchSet> setList = new ArrayList<MatchSet>();
 	
+	private boolean finished;
+	private int winningTeam;
 	
+	public boolean isFinished() {
+		return finished;
+	}
+	public void setFinished(boolean finished) {
+		this.finished = finished;
+	}
+	public int getWinningTeam() {
+		return winningTeam;
+	}
+	public void setWinningTeam(int winningTeam) {
+		this.winningTeam = winningTeam;
+	}
 	public int getId() {
 		return id;
 	}

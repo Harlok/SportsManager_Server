@@ -898,6 +898,36 @@ public class PlayerService
 		return result;
 	}
 	
+	public TransacResult updateEventMatch(EventMatch dto)
+	{
+		TransacResult result = new TransacResult();
+		EventMatchDAO dao;
+		
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+
+		try
+		{
+			System.out.println("updateEventMatch id = " + dto.getId() + " finished = " + dto.isFinished() + " winningTeam = " + dto.getWinningTeam());
+			
+			dao = (EventMatchDAO)session.get(EventMatchDAO.class, dto.getId());
+			dao.copyDTO(dto);
+			session.update(dao); // update the existing record.
+			tx.commit();
+		}
+		catch (Exception e3)
+		{
+			result.createError(-1,e3.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+		
+		return result;
+	}	
+		
+	
 	public int createTeam(TeamDAO team)
 	{
 		

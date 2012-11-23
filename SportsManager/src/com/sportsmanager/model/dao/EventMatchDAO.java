@@ -31,11 +31,27 @@ public class EventMatchDAO extends BaseDAO
 
 	private int courtNo;
 	private int timeSlot;
+	private boolean finished;
+	private int winningTeam;
 	
 	@Transient
 	private int poolNo;
 	@Transient
 	private boolean scheduled = false;
+	
+	public boolean isFinished() {
+		return finished;
+	}
+	public void setFinished(boolean finished) {
+		this.finished = finished;
+	}
+	public int getWinningTeam() {
+		return winningTeam;
+	}
+	public void setWinningTeam(int winningTeam) {
+		this.winningTeam = winningTeam;
+	}
+	
 	
 	
 	public int getId() {
