@@ -95,7 +95,14 @@ public class BaseDAO
 		        {
 		        	getter = sourceMethods[i];
 		        	//getterName = getter.getName();
-		        	setterName = "set" + getter.getName().substring(3);
+		        	if (sourceMethods[i].getName().startsWith("get"))
+		        	{
+		        		setterName = "set" + getter.getName().substring(3);
+		        	}
+		        	else // if it's an isGetter instead of a getGetter
+		        	{
+		        		setterName = "set" + getter.getName().substring(2);
+		        	}
 		        	
 		        	if (getter.getReturnType() != java.util.Collection.class)
 		        	{

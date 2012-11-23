@@ -53,7 +53,7 @@ public class PlayerService
 {
 	private static SessionFactory sessionFactory;
 	private static ServiceRegistry serviceRegistry;
-	private static String serverVersion = "0.0.2";
+	private static String serverVersion = "0.0.4";
 	
 	public PlayerService() { }
 	
@@ -870,7 +870,7 @@ public class PlayerService
 				match.getSetList().add(setDAO);
 				session.save(setDAO); // create it
 				result.setId(setDAO.getId());
-				System.out.println("New set id: " + setDAO.getId());
+				System.out.println("New set id: " + setDAO.getId() + " finished = " + setDAO.isFinished());
 			}
 			else // otherwise
 			{
@@ -881,6 +881,7 @@ public class PlayerService
 				setDAO.setFinished(matchSet.isFinished());
 				setDAO.setWinningTeam(matchSet.getWinningTeam());
 				session.update(setDAO); // update the existing record.
+				System.out.println("Saved set id: " + setDAO.getId() + " finished = " + setDAO.isFinished());
 			}
 			tx.commit();
 			
