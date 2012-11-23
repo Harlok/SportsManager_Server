@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sports2</property>
+		<property name="hibernate.connection.username">sportsmanager</property>
+		<property name="hibernate.connection.password">sportsmanager9182</property>
+		
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+<!--		<property name="hbm2ddl.auto">create</property>-->
+		<property name="hbm2ddl.auto">update</property>
+
+		<mapping class="com.sportsmanager.model.dao.InvitationDAO" />
+		<mapping class="com.sportsmanager.model.dao.LeagueDAO" />
+		<mapping class="com.sportsmanager.model.dao.LeagueAdminDAO" />
+		<mapping class="com.sportsmanager.model.dao.LeagueSeasonDAO" />
+		<mapping class="com.sportsmanager.model.dao.VolleyLevelDAO" />
+		<mapping class="com.sportsmanager.model.dao.LevelInterestDAO" />
+		<mapping class="com.sportsmanager.model.dao.LocationDAO" />
+		<mapping class="com.sportsmanager.model.dao.EventMatchDAO" />
+		<mapping class="com.sportsmanager.model.dao.OrganizationDAO" />
+		<mapping class="com.sportsmanager.model.dao.PlayerDAO" />
+		<mapping class="com.sportsmanager.model.dao.PlayerAvailabilityDAO" />
+		<mapping class="com.sportsmanager.model.dao.PlayerVolleyPosDAO" />
+		<mapping class="com.sportsmanager.model.dao.SeasonEventDAO" />
+		<mapping class="com.sportsmanager.model.dao.TeamDAO" />
+		<mapping class="com.sportsmanager.model.dao.TeamPlayerDAO" />
+		<mapping class="com.sportsmanager.model.dao.EventTeamDAO" />
+		<mapping class="com.sportsmanager.model.dao.MatchSetDAO" />
+		<mapping class="com.sportsmanager.model.dao.VolleyTypeDAO" />
+
+<!--		<mapping class="com.sportsmanager.model.dao.PlayerScheduleItem" />-->
+	</session-factory>
+</hibernate-configuration>
